@@ -35,6 +35,27 @@
             list-style-position: inside;
         }
     </style>
+
+    <script>
+    localStorage.removeItem("favorites");
+
+    function addToFavorites(gameName) {
+        let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+        if (!favorites.includes(gameName)) {
+            favorites.push(gameName);
+            localStorage.setItem("favorites", JSON.stringify(favorites));
+            alert("بازی به لیست مورد علاقه شما اضافه شد!");
+        } else {
+            alert("این بازی قبلاً اضافه شده است.");
+        }
+    }
+
+    function goToFavoritesPage() {
+        window.location.href = "favorites_game.html";
+    }
+    </script>
+
+
 </head>
 <body>
     <div class="معرفی">
@@ -76,7 +97,7 @@
 بلوک های ساختمانی یک نمونه عالی بعنوان بازی هوش کودکان است و کودک پس از ساخت آن احساس اعتماد به نفس و غرور می کند.
         </p>
         <img src="https://image.torob.com/base/images/l6/oS/l6oSJTqTzOCiep-k.jpg_/560x560.avif" alt="عکس اول" width="400">
-        <button onclick="alert('بازی مورد علاقه شما ثبت شد!')">ثبت این بازی به عنوان بازی مورد علاقه</button>
+        <button onclick="addToFavorites('بلوک‌های ساختمانی')">ثبت این بازی به عنوان بازی مورد علاقه</button>
 
     </div>
     
@@ -90,7 +111,7 @@
 مثل بازی برج مکعب که دارای ۱۰ مکعب در سایزهای مختلف هست که کودک باید به ترتیب سایزها مکعب ها را روی هم بچیند.
         </p>
         <img src="http://maashinsharji.ir/wp-content/uploads/2019/10/asba2.jpg" alt="عکس اول" width="400">
-        <button onclick="alert('بازی مورد علاقه شما ثبت شد!')">ثبت این بازی به عنوان بازی مورد علاقه</button>
+        <button onclick="addToFavorites('اسباب‌ بازی تو در تو')">ثبت این بازی به عنوان بازی مورد علاقه</button>
     </div>
     
     <div class="بازی سوم، پازل کاغذی">
@@ -105,11 +126,11 @@
 شما همچنین می توانید برش ها را از ۲ تصویر جدا انتخاب کنید.
         </p>
         <img src="https://af.joyful-printing.net/Content/uploads/2023243797/20231125220329ced512ca4c5a456c925530529ba21888.jpg?size=800x0" alt="عکس اول" width="400">
-        <button onclick="alert('بازی مورد علاقه شما ثبت شد!')">ثبت این بازی به عنوان بازی مورد علاقه</button>
+        <button onclick="addToFavorites('پازل کاغذی')">ثبت این بازی به عنوان بازی مورد علاقه</button>
     </div>
 
 
-    <button onclick="alert('بازی های مورد علاقه تان مشاهده شد')">مشاهده ی لیست بازی های مورد علاقه ای که ثبت کردید</button>
+    <button onclick= "goToFavoritesPage()">مشاهده‌ی لیست بازی‌های مورد علاقه</button>
 
     <div class="منابع">
         <a href="https://bazidone.com/childrens-intelligence-game/">منبع مطلب</a>
