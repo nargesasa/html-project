@@ -126,7 +126,7 @@ body {
   font-family: Vazirmatn, sans-serif;
 }
 
-.table th, .my_table td {
+.table th, .table td {
   border: 1px solid #ccc;
   padding: 12px;
   margin: 0;
