@@ -7,6 +7,7 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.8;
+  font-size: 18px;
 }
 
 
@@ -89,13 +90,13 @@ body {
 }
 
 .game_title {
-  font-size: 22px;
+  /*font-size: 22px;*/
   color: #388e3c;
   margin-bottom: 10px;
 }
 
 .game_description {
-  font-size: 17px;
+  /*font-size: 17px;*/
   text-align: justify;
   color: #444;
   margin-bottom: 15px;
@@ -117,6 +118,7 @@ body {
   height: auto;
   display: block;
   margin: 0 auto;
+  border-radius: 12px;
 }
 
 
@@ -186,7 +188,25 @@ body {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
+  body {
+    font-size: 14px;
+  }
+
+  .main_title {
+    font-size: 20px;
+  }
+
+  .game_title {
+    font-size: 16px;
+  }
+
+  .game_description,
+  .intro_text,
+  .game_list_items {
+    font-size: 14px;
+  }
+
   .layout_container {
     flex-direction: column;
     align-items: center;
@@ -198,24 +218,61 @@ body {
     flex: unset;
   }
 
-  .intro_text,
-  .intro {
+  .intro,
+  .intro_text {
     width: 95%;
     padding: 20px;
+  }
+
+  .table th, .table td {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .like_button {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+}
+
+
+@media (min-width: 600px) and (max-width: 1024px) {
+  body {
+    font-size: 16px;
+  }
+
+  .main_title {
+    font-size: 26px;
   }
 
   .game_title {
     font-size: 20px;
   }
 
-  .main_title {
-    font-size: 24px;
+  .game_description,
+  .intro_text,
+  .game_list_items {
+    font-size: 16px;
   }
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
+
+@media (min-width: 1025px) {
+  body {
+    font-size: 18px;
+  }
+
+  .main_title {
+    font-size: 32px;
+  }
+
+  .game_title {
+    font-size: 22px;
+  }
+
+  .game_description,
+  .intro_text,
+  .game_list_items {
+    font-size: 18px;
+  }
 }
