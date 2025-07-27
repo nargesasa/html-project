@@ -116,6 +116,111 @@
     </table>
   </section>
 
+  <section class="form_section">
+    <h2>فرم ارتباط با ما</h2>
+
+    <form action="/submit" method="post">
+
+      <fieldset>
+        <legend>اطلاعات شخصی</legend>
+
+        <label for="name">نام:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">ایمیل:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="tel">شماره تماس:</label>
+        <input type="tel" id="tel" name="tel">
+      </fieldset>
+
+      <fieldset>
+        <legend>اطلاعات بیشتر</legend>
+
+        <label for="toy">انتخاب اسباب‌بازی مورد علاقه:</label>
+        <select id="toy" name="toy">
+          <optgroup label="پازل‌ها">
+            <option value="paper_puzzle">پازل کاغذی</option>
+          </optgroup>
+          <optgroup label="بلوک‌ها">
+            <option value="building_blocks">بلوک‌های ساختمانی</option>
+          </optgroup>
+        </select>
+
+        <label>
+          <input type="checkbox" name="subscribe" value="yes">
+          عضو سایت شوید
+        </label>
+
+        <p>جنسیت:</p>
+        <label><input type="radio" name="gender" value="male"> پسر</label>
+        <label><input type="radio" name="gender" value="female"> دختر</label>
+
+        <label for="message">پیام شما:</label>
+        <textarea id="message" name="message" rows="4"></textarea>
+      </fieldset>
+
+      <fieldset>
+        <legend>انواع ورودی‌ها</legend>
+
+        <label>رنگ دلخواه:</label>
+        <input type="color" name="color">
+
+        <label>تاریخ تولد:</label>
+        <input type="date" name="birthday">
+
+        <label>تاریخ و ساعت:</label>
+        <input type="datetime-local" name="datetime">
+
+        <label>ماه تولد:</label>
+        <input type="month" name="month">
+
+        <label>زمان دلخواه:</label>
+        <input type="time" name="time">
+
+        <label>هفته مورد نظر:</label>
+        <input type="week" name="week">
+
+        <label>رمز عبور:</label>
+        <input type="password" name="password">
+
+        <label>فایل عکس:</label>
+        <input type="file" name="file">
+
+        <label>سن:</label>
+        <input type="number" name="age" min="1" max="100">
+
+        <label>محدوده علاقه‌مندی (0 تا 10):</label>
+        <input type="range" name="interest" min="0" max="10">
+
+        <label>مخفی (پنهان):</label>
+        <input type="hidden" name="hidden_value" value="12345">
+
+        <label>جستجو:</label>
+        <input type="search" name="search">
+
+        <label for="city">شهر:</label>
+        <input list="cities" name="city" id="city">
+        <datalist id="cities">
+          <option value="تهران">
+          <option value="اصفهان">
+          <option value="شیراز">
+        </datalist>
+
+        <label>ارسال با تصویر:</label>
+        <input type="image" src="images/send-button.png" alt="ارسال" width="50">
+
+        <label>نتیجه تخمین سن:</label>
+        <output name="age_output">2</output>
+      </fieldset>
+
+      <button type="submit">ارسال فرم</button>
+      <button type="reset">پاک کردن فرم</button>
+      <input type="button" value="پایان">
+    </form>
+  </section>
+
+
   <section class="shop">
     <iframe src="shop.html" name="iframe_shop"></iframe>
     <a href="https://piccotoys.com/" target="iframe_shop">مراجعه به فروشگاه</a>
