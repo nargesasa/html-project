@@ -1,0 +1,17 @@
+body {
+  font-family: "Tahoma", sans-serif;
+  background-color: #fff8e1;
+  color: #333;
+  text-align: center;
+  padding: 20px;
+}
+
+.product {
+  margin: 20px 0;
+}
+
+.product img {
+  max-width: 100px;
+  display: block;
+  margin: 10px auto;
+}
