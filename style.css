@@ -188,6 +188,34 @@ body {
 }
 
 
+.shop {
+  width: 90%;
+  margin: 30px auto;
+  text-align: center;
+}
+
+.shop iframe {
+  width: 100%;
+  height: 400px;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+}
+
+.shop a {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 16px;
+  color: #00695c;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.shop a:hover {
+  text-decoration: underline;
+}
+
+
+
 @media (max-width: 600px) {
   body {
     font-size: 14px;
@@ -233,7 +261,18 @@ body {
     font-size: 14px;
     padding: 10px 16px;
   }
+
+
+  .shop iframe {
+    height: 250px;
+  }
+
+  .shop a {
+    font-size: 14px;
+  }
+
 }
+
 
 
 @media (min-width: 600px) and (max-width: 1024px) {
@@ -254,6 +293,16 @@ body {
   .game_list_items {
     font-size: 16px;
   }
+
+
+  .shop iframe {
+    height: 320px;
+  }
+
+  .shop a {
+    font-size: 15px;
+  }
+
 }
 
 
@@ -274,5 +323,13 @@ body {
   .intro_text,
   .game_list_items {
     font-size: 18px;
+  }
+
+  .shop iframe {
+    height: 400px;
+  }
+
+  .shop a {
+    font-size: 16px;
   }
 }
