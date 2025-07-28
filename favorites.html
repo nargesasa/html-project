@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>علاقه‌مندی‌های شما</title>
+  <link rel="stylesheet" href="favorites.css">
+</head>
+<body class="favorites_page">
+  <h1 class="favorites_title">علاقه‌مندی‌های شما</h1>
+  <div id="favorites_container" class="favorites_container"></div>
+    
+  <script>
+  const favorites = JSON.parse(window.name || '[]');
+  const container = document.getElementById("favorites_container");
+
+  if (favorites.length === 0) {
+    container.innerHTML = "<p>هیچ بازی به علاقه‌مندی‌های شما اضافه نشده است.</p>";
+  } else {
+    favorites.forEach(name => {
+      const gameBox = document.createElement("div");
+      gameBox.className = "favorite_game";
+      gameBox.innerHTML = `
+        <h3>${name}</h3>
+        <img src="images/${getImageName(name)}" alt="${name}">
+        <p>${getGameDescription(name)}</p>
+      `;
+      container.appendChild(gameBox);
+    });
+  }
+
+  function getImageName(name) {
+    if (name.includes("بلوک")) return "bblock.jpg";
+    if (name.includes("پازل")) return "bpuzzle.jpg";
+    if (name.includes("تودرتو")) return "btoy.jpg";
+    return "default.jpg";
+  }
+
+  function getGameDescription(name) {
+    if (name.includes("بلوک")) return " بازی با بلوک‌ها باعث تقویت مهارت‌های حرکتی و منطقی می‌شود.";
+    if (name.includes("پازل")) return "پازل‌ها به درک فضایی و حل مسئله کمک می‌کنند.";
+    if (name.includes("تودرتو")) return "اسباب‌بازی‌های تو در تو هماهنگی چشم و دست را تقویت می‌کنند.";
+    return "توضیحی برای این بازی یافت نشد.";
+  }
+</script>
+
+</body>
+</html>
