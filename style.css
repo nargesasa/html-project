@@ -50,7 +50,7 @@ body {
 }
 
 
-.game_list {
+.miscellaneous_column {
   flex: 1 1 250px;
   background-color: #e0f2f1;
   padding: 20px;
@@ -122,7 +122,7 @@ body {
 }
 
 
-.like_button {
+.like_button, .newsletter_button {
   background-color: #4caf50;
   color: white;
   padding: 12px 20px;
@@ -132,6 +132,11 @@ body {
   cursor: pointer;
   transition: 0.3s;
 }
+
+.newsletter_button:hover {
+  background-color: #4fe713;
+}
+
 .like_button:hover {
   background-color: #388e3c;
 }
@@ -312,6 +317,21 @@ body {
   text-align: center;
 }
 
+.game_list_box {
+  background-color: #fce4ec;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.newsletter_box {
+  background-color: #fff3e0;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
 
 
 
@@ -339,7 +359,7 @@ body {
     align-items: center;
   }
 
-  .game_list,
+  .miscellaneous_column,
   .games {
     width: 100%;
     flex: unset;
@@ -356,7 +376,7 @@ body {
     padding: 8px;
   }
 
-  .like_button {
+  .like_button, .newsletter_button {
     font-size: 14px;
     padding: 10px 16px;
   }

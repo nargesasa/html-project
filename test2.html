@@ -25,13 +25,20 @@
 
 
   <main class="layout_container">
-    <aside class="game_list">
-        <h2 class="game_list_title">فهرست بازی‌ها</h2>
-            <ul class="game_list_items">
+
+    <aside class="miscellaneous_column">
+        <div class="game_list_box">
+          <h2 class="game_list_title">فهرست بازی‌ها</h2>
+          <ul class="game_list_items">
             <li>بلوک‌های ساختمانی</li>
             <li>پازل کاغذی</li>
             <li>اسباب‌ بازی تو در تو</li>
-            </ul>
+          </ul>
+        </div>
+
+        <div class="newsletter_box">
+          <button class="newsletter_button" onclick="goToNewsletter()">خبرنامه</button>
+        </div>
     </aside>
 
     <section class="games">
@@ -257,6 +264,10 @@
       window.name = JSON.stringify(favorites);
       window.location.href = "favorites.html";
     }
+
+  function goToNewsletter() {
+    window.location.href = "newsletter.html";
+  }
   </script>
 
 

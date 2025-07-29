@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>خبرنامه</title>
+  <link rel="stylesheet" href="newsletter.css">
+</head>
+<body>
+
+    <section class="newsletter_article">
+        <h2>هوش هشتگانه گاردنر چیست؟</h2>
+        <div class="news_image">
+            <img src="images/dastane-koodak.jpg" alt="عکس خبرنامه">
+        </div>
+        <p>
+            بر اساس نظریه هوش هشتگانه گاردنر، هر فردی توانایی‌های ویژه و روش منحصر به فردی برای استفاده از هوش خود دارد.
+            بر اساس آزمون هوش هشت گانه گاردنر، هوش تک است. اما به انواع مختلف تقسیم می‌شود. همچنین بیان می‌کند که هر نوع هوش پویا و قابل توسعه است.
+            بنابراین می‌توان از آن برای استعدادیابی کودک و نوجوان استفاده کرد.
+        </p>
+        <p>
+            در نظریه هوش چندگانه گاردنر، ذهن/مغز انسان در طول میلیون‌ها سال ۷ حوزه مهارتی مختلف را توسعه داده است.
+            اینها را هوش زبانی، منطقی-ریاضی، موسیقیایی، فضایی، اجتماعی و شخصی می‌نامند.
+            با تحقیقات بعدی، یک حوزه مهارتی دیگر (هوش طبیعی) به این حوزه‌ها اضافه شد.
+            هر نقش اجتماعی مستلزم ترکیب این هوش‌هاست.
+        </p>
+        <h3>انواع هوش در کودکان بر اساس تئوری گاردنر</h3>
+        <ul>
+            <li>هوش کلامی / زبانی</li>
+            <li>هوش منطقی / ریاضی</li>
+            <li>هوش بصری / فضایی</li>
+            <li>هوش بدنی / حرکتی</li>
+            <li>هوش موزیکال / ریتمیک</li>
+            <li>هوش اجتماعی / بین فردی</li>
+            <li>هوش شخصی / درونگرا</li>
+            <li>هوش طبیعت / طبیعت‌شناس</li>
+        </ul>
+    </section>
+
+
+    <section class="newsletter_form_section">
+        <h1 class="newsletter_title">عضویت در خبرنامه</h1>
+
+        <p class="description">با وارد کردن نام و ایمیل خود، عضو خبرنامه ما شوید.</p>
+
+        <form class="newsletter_form">
+            <label for="name">نام:</label>
+            <input type="text" id="name">
+
+            <label for="email">ایمیل:</label>
+            <input type="email" id="email">
+
+            <button type="button" onclick="subscribe()">عضویت</button>
+        </form>
+
+        <div id="result" class="result"></div>
+    </section>
+
+  <script>
+
+    let subscribers = [];
+
+    function subscribe() {
+      let name = document.getElementById("name").value;
+      let email = document.getElementById("email").value;
+
+      let user = {
+        name: name,
+        email: email
+      };
+
+      subscribers.push(user);
+
+      document.getElementById("result").innerHTML =
+        `با موفقیت عضو شدید، ${user.name} عزیز!`;
+    }
+
+  </script>
+</body>
+</html>
