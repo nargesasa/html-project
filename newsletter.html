@@ -55,25 +55,74 @@
         <div id="result" class="result"></div>
     </section>
 
-  <script>
+    <script>
+        let subscribers = []; 
 
-    let subscribers = [];
+        function subscribe() {
+            let name = document.getElementById("name").value; 
+            let email = document.getElementById("email").value; 
+            let age = 25; 
+            let bigId = 1234567890123456789012345678901234567890n; 
+            let isSubscribed = true; 
+            let notAssigned; 
+            let nothing = null; 
+            let uniqueId = Symbol("user"); 
 
-    function subscribe() {
-      let name = document.getElementById("name").value;
-      let email = document.getElementById("email").value;
+            let user = {
+            id: bigId,
+            name: name,
+            email: email,
+            age: age,
+            isSubscribed: isSubscribed,
+            status: notAssigned,
+            extra: nothing,
+            tag: uniqueId
+            };
 
-      let user = {
-        name: name,
-        email: email
-      };
+            subscribers.push(user);
 
-      subscribers.push(user);
+            let now = new Date();
 
-      document.getElementById("result").innerHTML =
-        `با موفقیت عضو شدید، ${user.name} عزیز!`;
-    }
 
-  </script>
+            let userMap = new Map();
+            userMap.set("name", name);
+            userMap.set("email", email);
+            userMap.set("joinedAt", now);
+
+
+            let tagSet = new Set();
+            tagSet.add("child");
+            tagSet.add("newsletter");
+            tagSet.add("child"); 
+
+           
+            let intArray = new Int32Array([10, 20, 30]);
+            let floatArray = new Float32Array([1.5, 2.3, 3.7]);
+
+         
+            let confirmationPromise = new Promise((resolve, reject) => {
+            if (name && email) {
+                resolve("با موفقیت عضو شدید، " + name + " عزیز!");
+            } else {
+                reject("لطفاً تمام فیلدها را پر کنید.");
+            }
+            });
+
+            confirmationPromise
+            .then((message) => {
+                document.getElementById("result").innerHTML = `
+                 ${message}<br>
+                 زمان عضویت: ${now.toLocaleString()}<br>
+                 تگ‌های شما: ${Array.from(tagSet).join(", ")}<br>
+                 IntArray: ${intArray.join("، ")}<br>
+                 FloatArray: ${floatArray.join("، ")}
+                `;
+                console.log(" Map:", userMap);
+            })
+            .catch((err) => {
+                document.getElementById("result").innerHTML = " " + err;
+            });
+        }
+    </script>
 </body>
 </html>
