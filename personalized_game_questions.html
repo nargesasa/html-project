@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>سوالات شخصی‌سازی بازی</title>
+  <link rel="stylesheet" href="personalized_game_questions.css">
+</head>
+<body>
+  <main class="question_container">
+    <h1>سوالات برای شخصی‌سازی بازی کودک شما</h1>
+    <form id="gameForm">
+      <label>نام کودک:</label>
+      <input type="text" id="childName" required>
+
+      <label>سن کودک:</label>
+      <input type="number" id="childAge" required>
+
+      <label>جنسیت:</label>
+      <select id="childGender">
+        <option value="پسر">پسر</option>
+        <option value="دختر">دختر</option>
+      </select>
+
+      <label>وضعیت خواب:</label>
+      <select id="sleepQuality">
+        <option value="راحت">راحت</option>
+        <option value="متوسط">متوسط</option>
+        <option value="سخت">سخت</option>
+      </select>
+
+      <label>آیا از چیزی می‌ترسد و با شما در میان می‌گذارد؟</label>
+      <select id="fears">
+        <option value="بله">بله</option>
+        <option value="خیر">خیر</option>
+      </select>
+
+      <label>نوع بازی مورد علاقه:</label>
+      <select id="playType">
+        <option value="گروهی">گروهی</option>
+        <option value="انفرادی">انفرادی</option>
+      </select>
+
+      <label>میزان شکستن اسباب‌بازی:</label>
+      <select id="breakingLevel">
+        <option value="اصلاً">اصلاً</option>
+        <option value="متوسط">متوسط</option>
+        <option value="مکرراً">مکرراً</option>
+      </select>
+
+      <button type="button" onclick="goToResult()">مشاهده‌ی بازی مناسب فرزند من</button>
+    </form>
+  </main>
+
+  <script>
+
+    function ChildProfile(name, age, gender, sleep, fears, playType, breaking) {
+      this.name = name;
+      this.age = age;
+      this.gender = gender;
+      this.sleep = sleep;
+      this.fears = fears;
+      this.playType = playType;
+      this.breaking = breaking;
+    }
+
+
+    ChildProfile.prototype.toJSON = function () {
+      return JSON.stringify({
+        name: this.name,
+        age: this.age,
+        gender: this.gender,
+        sleep: this.sleep,
+        fears: this.fears,
+        playStyle: this.playType,
+        breaksToys: this.breaking
+      });
+    };
+
+    function goToResult() {
+      const name = document.getElementById("childName").value.trim();
+      const age = document.getElementById("childAge").value;
+      const gender = document.getElementById("childGender").value;
+      const sleep = document.getElementById("sleepQuality").value;
+      const fears = document.getElementById("fears").value;
+      const playType = document.getElementById("playType").value;
+      const breaking = document.getElementById("breakingLevel").value;
+
+
+      if (!name || !age) {
+        alert("لطفاً نام و سن کودک را وارد کنید.");
+        return;
+      }
+
+
+      const child = new ChildProfile(name, age, gender, sleep, fears, playType, breaking);
+
+
+      const jsonData = child.toJSON();
+      sessionStorage.setItem("childData", jsonData);
+
+
+      window.location.href = "personalized_game.html";
+    }
+  </script>
+</body>
+</html>
