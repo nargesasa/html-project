@@ -341,7 +341,7 @@ body {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
 }
 
-.newsletter_img_box {
+.side_img_box {
   text-align: center;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -351,7 +351,7 @@ body {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.newsletter_img_box  img {
+.side_img_box  img {
   max-width: 100%;
   height: auto;
   display: block;
@@ -359,7 +359,7 @@ body {
   border-radius: 12px;
 }
 
-.personalized_img_box {
+.side_img_box {
   text-align: center;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -369,7 +369,7 @@ body {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.personalized_img_box  img {
+.side_img_box  img {
   max-width: 100%;
   height: auto;
   display: block;
