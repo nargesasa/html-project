@@ -13,6 +13,9 @@
   <main>
     <section id="result_section">
       <p id="message">در حال پردازش اطلاعات...</p>
+      <div class="game_image">
+        <img id="gameImage" alt="تصویر بازی پیشنهادی" />
+      </div>
     </section>
   </main>
 
@@ -24,7 +27,6 @@
     const jsonString = sessionStorage.getItem("childData");
     const childData = JSON.parse(jsonString);
 
-
     function suggestGame(data) {
       const scores = {
         'پازل کاغذی': 0,
@@ -34,7 +36,6 @@
         'بازی پرتاب توپ': 0
       };
 
- 
       if (data.age < 4) {
         scores['نقاشی با انگشت'] += 2;
         scores['پازل کاغذی'] += 1;
@@ -45,18 +46,15 @@
         scores['بازی مشارکتی'] += 2;
       }
 
-
       if (data.sleep === "سخت") {
         scores['نقاشی با انگشت'] += 3;
       } else if (data.sleep === "متوسط") {
         scores['پازل کاغذی'] += 1;
       }
 
-
       if (data.fears === "بله") {
         scores['نقاشی با انگشت'] += 2;
       }
-
 
       if (data.playStyle === "انفرادی") {
         scores['بازی لگو'] += 3;
@@ -65,13 +63,11 @@
         scores['بازی مشارکتی'] += 3;
       }
 
-
       if (data.breaking === "مکرراً") {
         scores['بازی پرتاب توپ'] += 4;
       } else if (data.breaking === "متوسط") {
         scores['بازی پرتاب توپ'] += 2;
       }
-
 
       let bestGame = "";
       let maxScore = -1;
@@ -85,9 +81,29 @@
       return bestGame;
     }
 
+    function getGameImage(gameName) {
+      const images = {
+        'پازل کاغذی': 'images/پپازل.jpg',
+        'نقاشی با انگشت': 'images/پانگشت.jpg',
+        'بازی لگو': 'images/پالگو.jpg',
+        'بازی مشارکتی': 'images/پمشارکتی.jpg',
+        'بازی پرتاب توپ': 'images/پپرتاب.jpg'
+      };
+      return images[gameName] || '';
+    }
+
     const recommendedGame = suggestGame(childData);
+
     const messageElement = document.getElementById("message");
     messageElement.innerHTML = `«${childData.name}» عزیز! بر اساس پاسخ‌های شما، بازی پیشنهادی ما برای شما: <strong>${recommendedGame}</strong> می‌باشد.`;
+
+    const imageElement = document.getElementById("gameImage");
+    const gameImagePath = getGameImage(recommendedGame);
+
+    if (gameImagePath) {
+      imageElement.src = gameImagePath;
+      imageElement.style.display = "block";
+    }
   </script>
 </body>
 </html>
