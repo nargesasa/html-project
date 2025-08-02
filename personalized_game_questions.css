@@ -1,0 +1,126 @@
+
+body {
+  font-family: "Tahoma", "Vazirmatn", sans-serif;
+  background-color: #acddf0;
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+  color: #333;
+}
+
+.question_container {
+  max-width: 800px;
+  margin: 40px auto;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: #15b8e0;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+label {
+  font-weight: bold;
+  color: #4e342e;
+}
+
+input, select {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #8bc34a;
+  color: white;
+  font-size: 16px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #689f38;
+}
+
+
+@media (max-width: 600px) {
+  body {
+    font-size: 14px;
+  }
+
+  .question_container {
+    margin: 20px 10px;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  input, select {
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+}
+
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  body {
+    font-size: 16px;
+  }
+
+  .question_container {
+    width: 90%;
+    padding: 25px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  input, select {
+    font-size: 15px;
+  }
+
+  button {
+    font-size: 15px;
+  }
+}
+
+
+@media (min-width: 1025px) {
+  body {
+    font-size: 18px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  input, select {
+    font-size: 16px;
+  }
+
+  button {
+    font-size: 16px;
+  }
+}
