@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>بازی مناسب کودک شما</title>
+  <link rel="stylesheet" href="personalized_game.css">
+</head>
+<body>
+  <header>
+    <h1>بازی مناسب کودک شما</h1>
+  </header>
+
+  <main>
+    <section id="result_section">
+      <p id="message">در حال پردازش اطلاعات...</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>پایان صفحه پیشنهاد بازی</p>
+  </footer>
+
+  <script>
+    const jsonString = sessionStorage.getItem("childData");
+    const childData = JSON.parse(jsonString);
+
+
+    function suggestGame(data) {
+      const scores = {
+        'پازل کاغذی': 0,
+        'نقاشی با انگشت': 0,
+        'بازی لگو': 0,
+        'بازی مشارکتی': 0,
+        'بازی پرتاب توپ': 0
+      };
+
+ 
+      if (data.age < 4) {
+        scores['نقاشی با انگشت'] += 2;
+        scores['پازل کاغذی'] += 1;
+      } else if (data.age <= 6) {
+        scores['پازل کاغذی'] += 2;
+        scores['بازی لگو'] += 2;
+      } else {
+        scores['بازی مشارکتی'] += 2;
+      }
+
+
+      if (data.sleep === "سخت") {
+        scores['نقاشی با انگشت'] += 3;
+      } else if (data.sleep === "متوسط") {
+        scores['پازل کاغذی'] += 1;
+      }
+
+
+      if (data.fears === "بله") {
+        scores['نقاشی با انگشت'] += 2;
+      }
+
+
+      if (data.playStyle === "انفرادی") {
+        scores['بازی لگو'] += 3;
+        scores['پازل کاغذی'] += 2;
+      } else if (data.playStyle === "گروهی") {
+        scores['بازی مشارکتی'] += 3;
+      }
+
+
+      if (data.breaking === "مکرراً") {
+        scores['بازی پرتاب توپ'] += 4;
+      } else if (data.breaking === "متوسط") {
+        scores['بازی پرتاب توپ'] += 2;
+      }
+
+
+      let bestGame = "";
+      let maxScore = -1;
+      for (const game in scores) {
+        if (scores[game] > maxScore) {
+          maxScore = scores[game];
+          bestGame = game;
+        }
+      }
+
+      return bestGame;
+    }
+
+    const recommendedGame = suggestGame(childData);
+    const messageElement = document.getElementById("message");
+    messageElement.innerHTML = `«${childData.name}» عزیز! بر اساس پاسخ‌های شما، بازی پیشنهادی ما برای کودک شما: <strong>${recommendedGame}</strong> می‌باشد.`;
+  </script>
+</body>
+</html>
