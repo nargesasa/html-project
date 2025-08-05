@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>بازی هوش با بارگذاری غیرهمزمان</title>
+  <link rel="stylesheet" href="load_game_async.css">
+</head>
+<body>
+
+  <div class="async_game_container">
+    <h1>بازی بارگذاری‌شده با داده داخلی</h1>
+    <div id="gameContent">
+      <p>در حال بارگذاری بازی...</p>
+    </div>
+  </div>
+
+  <script>
+    const gameDataJSON = `{
+      "name": "بازی حافظه با اشکال",
+      "description": "کارت‌های اشکال را بچینید و از کودک بخواهید جفت‌های مشابه را پیدا کند. این بازی حافظه و تمرکز را تقویت می‌کند.",
+      "ageRange": "3 تا 6 سال",
+      "image": "images/memory_game.jpg"
+    }`;
+
+    async function loadGameData() {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          try {
+            const game = JSON.parse(gameDataJSON);
+            resolve(game);
+          } catch (error) {
+            reject("خطا در تبدیل JSON به شیء");
+          }
+        }, 1000); 
+      });
+    }
+
+    async function renderGame() {
+      const container = document.getElementById("gameContent");
+
+      try {
+        const game = await loadGameData();
+
+        container.innerHTML = `
+          <h2 class="async_game_title">${game.name}</h2>
+          <p class="async_game_description">${game.description}</p>
+          <p><strong>مناسب برای سن:</strong> ${game.ageRange}</p>
+          <div class="async_game_image">
+            <img src="${game.image}" alt="${game.name}">
+          </div>
+        `;
+      } catch (err) {
+        container.innerHTML = `<p>خطایی در بارگذاری بازی رخ داده است.</p>`;
+        console.error(err);
+      }
+    }
+
+    renderGame();
+  </script>
+
+</body>
+</html>
